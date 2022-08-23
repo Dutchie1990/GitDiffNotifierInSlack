@@ -45,7 +45,7 @@ This custom action can sent a GIT DIFF with connecting JIRA tickets to a release
 
 Here's what the Slack message would look like:
 
-![example](/docs/images/example.png)
+![example](images/example.png)
 
 ## Change the icon
 
