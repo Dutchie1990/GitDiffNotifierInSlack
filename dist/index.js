@@ -13,9 +13,9 @@ const {
   removeDuplicates,
 } = __nccwpck_require__(4008);
 
-const compareURL = configHelper.getCompareURL();
-const authToken = configHelper.getAuthToken();
-const repositoryKind = configHelper.getRepositoryType();
+const compareURL = configHelper.getConfigL('compareURL');
+const authToken = configHelper.getConfigL('authToken');
+const repositoryKind = configHelper.getConfigL('repositoryKind');
 
 const config =
   repositoryKind === 'private'
@@ -61,70 +61,16 @@ function _throw(m) {
   throw m;
 }
 
-function getCompareURL() {
-  return core.getInput('compareURL')
-    ? core.getInput('compareURL')
+function getConfigL(configName) {
+  return core.getInput(configName)
+    ? core.getInput(configName)
     : _throw(
-        'Missing compareURL in yml file, please define the required variables'
-      );
-}
-
-function getProjectNames() {
-  return core.getInput('projectNames')
-    ? core.getInput('projectNames')
-    : _throw(
-        'Missing projectNames in yml file, please define the required variables'
-      );
-}
-
-function getSlackWebhook() {
-  return core.getInput('slackWebhook')
-    ? core.getInput('slackWebhook')
-    : _throw(
-        'Missing slackWebhook in yml file, please define the required variables'
-      );
-}
-
-function getRepository() {
-  return core.getInput('repository')
-    ? core.getInput('repository')
-    : _throw(
-        'Missing repository in yml file, please define the required variables'
-      );
-}
-
-function getAuthToken() {
-  return core.getInput('authToken')
-    ? core.getInput('authToken')
-    : _throw(
-        'Missing authToken in yml file, please define the required variables'
-      );
-}
-
-function getJiraURL() {
-  return core.getInput('jiraURL')
-    ? core.getInput('jiraURL')
-    : _throw(
-        'Missing jiraURL in yml file, please define the required variables'
-      );
-}
-
-function getRepositoryType() {
-  return core.getInput('repositoryKind')
-    ? core.getInput('repositoryKind')
-    : _throw(
-        'Missing repositoryKind in yml file, please define the required variables'
+        `Missing ${configName} in yml file, please define the required variables`
       );
 }
 
 module.exports = {
-  getCompareURL,
-  getProjectNames,
-  getSlackWebhook,
-  getRepository,
-  getAuthToken,
-  getJiraURL,
-  getRepositoryType,
+  getConfigL,
 };
 
 
@@ -167,9 +113,9 @@ const configHelper = __nccwpck_require__(1667);
 
 const today = moment().format('MMMM Do YYYY');
 
-const companyRepos = JSON.parse(configHelper.getProjectNames());
-const jiraURL = configHelper.getJiraURL();
-const repositoryName = configHelper.getRepository();
+const companyRepos = JSON.parse(configHelper.getConfigL('projectNames'));
+const jiraURL = configHelper.getConfigL('jiraURL');
+const repositoryName = configHelper.getConfigL('repository');
 
 function createText(ticketNumber, commit) {
   return companyRepos.some((repo) => ticketNumber.startsWith(repo))
@@ -14728,7 +14674,7 @@ const configHelper = __nccwpck_require__(1667);
 
 async function run() {
   try {
-    const INCOMING_WEBHOOK_URL = configHelper.getSlackWebhook();
+    const INCOMING_WEBHOOK_URL = configHelper.getConfig('slackWebhook');
 
     const getMessages = __nccwpck_require__(8947);
     const constructedMessage = await getMessages();
