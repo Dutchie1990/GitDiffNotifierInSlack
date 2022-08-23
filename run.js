@@ -3,7 +3,7 @@ const configHelper = require('./lib/configHelper');
 
 async function run() {
   try {
-    const INCOMING_WEBHOOK_URL = configHelper.getSlackWebhook();
+    const INCOMING_WEBHOOK_URL = configHelper.getConfig('slackWebhook');
 
     const getMessages = require('./lib/api');
     const constructedMessage = await getMessages();

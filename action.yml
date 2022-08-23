@@ -1,4 +1,4 @@
-name: 'Slack Incoming Webhook'
+name: 'Git diff notification messages on Slack linked to JIRA tickets'
 description: 'Post a message to Slack with Incoming Webhook'
 inputs:
   compareURL:
