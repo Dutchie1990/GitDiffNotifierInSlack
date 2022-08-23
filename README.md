@@ -7,8 +7,8 @@ This custom action can sent a GIT DIFF with connecting JIRA tickets to a release
 ## Usage
 
 ```yaml
-- name: Slack Notification
-  uses: AlphaFounders/slack-release-bot@main
+- name: Git diff notification messages on Slack linked to JIRA tickets
+  uses: Dutchie1990/GitDiffNotifierInSlack@v2
   with:
     compareURL: ${{ secrets.COMPARE_URL }}
     projectNames: ${{ secrets.PROJECT_NAMES }}
