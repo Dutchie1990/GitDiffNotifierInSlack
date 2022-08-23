@@ -1,0 +1,38 @@
+{
+  "name": "slack-release-bot",
+  "version": "1.0.0",
+  "description": "Slack Release Bot",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js",
+    "package": "ncc build index.js -o dist",
+    "test": "eslint index.js && jest",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json,ts}\" --single-quote"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlphaFounders/slack-release-bot.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript"
+  ],
+  "author": "RabbitCare Tech",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/AlphaFounders/slack-release-bot/issues"
+  },
+  "homepage": "https://github.com/AlphaFounders/slack-release-bot#readme",
+  "dependencies": {
+    "@actions/core": "^1.9.1",
+    "axios": "^0.27.2",
+    "moment": "^2.29.4",
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0",
+    "eslint": "^8.22.0",
+    "jest": "^28.1.3"
+  }
+}

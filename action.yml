@@ -1,0 +1,30 @@
+name: 'Slack Incoming Webhook'
+description: 'Post a message to Slack with Incoming Webhook'
+inputs:
+  compareURL:
+    description: 'Please define the git diff URL of your repository'
+    required: true
+  projectNames:
+    description: 'Please define your JIRA project names'
+    required: true
+  slackWebhook:
+    description: 'Please define your slack webhook'
+    required: true
+  repository:
+    description: 'Please define your repository name'
+    required: true
+  authToken:
+    description: 'Please define your github auth token'
+    required: false
+  jiraURL:
+    description: Please provide the jira project names
+    required: true
+  repositoryKind:
+    description: Please state if the repository is public or private
+    required: true
+branding:
+  icon: 'message-circle'
+  color: 'white'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
