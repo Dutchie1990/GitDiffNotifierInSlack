@@ -13,9 +13,9 @@ const {
   removeDuplicates,
 } = __nccwpck_require__(4008);
 
-const compareURL = configHelper.getConfigL('compareURL');
-const authToken = configHelper.getConfigL('authToken');
-const repositoryKind = configHelper.getConfigL('repositoryKind');
+const compareURL = configHelper.getConfig('compareURL');
+const authToken = configHelper.getConfig('authToken');
+const repositoryKind = configHelper.getConfig('repositoryKind');
 
 const config =
   repositoryKind === 'private'
@@ -61,7 +61,7 @@ function _throw(m) {
   throw m;
 }
 
-function getConfigL(configName) {
+function getConfig(configName) {
   return core.getInput(configName)
     ? core.getInput(configName)
     : _throw(
@@ -70,7 +70,7 @@ function getConfigL(configName) {
 }
 
 module.exports = {
-  getConfigL,
+  getConfig,
 };
 
 
@@ -113,9 +113,9 @@ const configHelper = __nccwpck_require__(1667);
 
 const today = moment().format('MMMM Do YYYY');
 
-const companyRepos = JSON.parse(configHelper.getConfigL('projectNames'));
-const jiraURL = configHelper.getConfigL('jiraURL');
-const repositoryName = configHelper.getConfigL('repository');
+const companyRepos = JSON.parse(configHelper.getConfig('projectNames'));
+const jiraURL = configHelper.getConfig('jiraURL');
+const repositoryName = configHelper.getConfig('repository');
 
 function createText(ticketNumber, commit) {
   return companyRepos.some((repo) => ticketNumber.startsWith(repo))
