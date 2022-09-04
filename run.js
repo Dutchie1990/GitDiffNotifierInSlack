@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const configHelper = require('./lib/configHelper');
-const workflowCancel = require('./lib/workflowManager');
+const manager = require('./lib/workflowManager');
 
 async function run() {
   try {
@@ -16,7 +16,7 @@ async function run() {
     const json = await sendMessage(message, INCOMING_WEBHOOK_URL);
 
     if (!haveCommits) {
-      workflowCancel.cancel();
+      manager.cancel();
     }
 
     core.setOutput('response', json);
