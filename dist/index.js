@@ -229,29 +229,32 @@ const { Octokit } = __nccwpck_require__(5375);
 const core = __nccwpck_require__(2186);
 const configHelper = __nccwpck_require__(1667);
 
-const octokit = new Octokit();
+const workflowId = configHelper.getConfig('run_ID');
+const auth = configHelper.getConfig('access_token');
+
+const octokit = new Octokit({
+  auth,
+});
 
 const owner = 'Dutchie1990';
 const repo = 'GitDiffNotifierInSlack';
 
-function cancel() {
+async function cancel() {
   console.log('workflow will be cancelled');
 
-  const workflowId = configHelper.getConfig('run_ID');
-
-  try {
-    const res = octokit.rest.actions.cancelWorkflowRun({
-      owner,
-      repo,
-      run_id: workflowId,
+  return await octokit
+    .request(`POST /repos/${owner}/${repo}/actions/runs/${workflowId}/cancel`)
+    .then((res) => {
+      console.log(
+        `Cancel run ${workflowId} responded with status ${res.status}`
+      );
+      core.info('Cancel Complete.');
+    })
+    .catch((error) => {
+      const msg = error.message || error;
+      console.log(`Error while canceling workflow_id ${workflowId}: ${msg}`);
+      core.setFailed(msg);
     });
-    console.log(`Cancel run ${workflowId} responded with status ${res.status}`);
-    core.info('Cancel Complete.');
-  } catch (error) {
-    const msg = error.message || error;
-    console.log(`Error while canceling workflow_id ${workflowId}: ${msg}`);
-    core.setFailed(msg);
-  }
 }
 
 module.exports = { cancel };
