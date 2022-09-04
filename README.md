@@ -17,6 +17,9 @@ This custom action can sent a GIT DIFF with connecting JIRA tickets to a release
     authToken: ${{ secrets.AUTH_TOKEN }}
     jiraURL: ${{ secrets.JIRA_URL }}
     repositoryKind: 'private'
+    access_token: ${{ github.token }}
+    run_ID: ${{ github.run_id }}
+    organizationName: ${{ secrets.ORGANIZATION }}
 ```
 
 ## Params
@@ -42,10 +45,25 @@ This custom action can sent a GIT DIFF with connecting JIRA tickets to a release
 - repositoryKind:
   Please state if the repository is public or private,
   { required: true }
+- access_token:
+  Access token to cancel the github action, normally ${{ github.token }}
+  { required: true }
+- run_ID:
+  Run ID for cancellation, normally ${{ github.run_id }}
+  { required: true }
+- organizationName:
+  Please define your organization's name
+  { required: true }
 
 Here's what the Slack message would look like:
 
+In case something is pending for the release
+
 ![example](images/example.png)
+
+In case nothing is pending for the release
+
+![example](images/example1.png)
 
 ## Change the icon
 

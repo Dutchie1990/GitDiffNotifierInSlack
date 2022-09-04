@@ -22,6 +22,15 @@ inputs:
   repositoryKind:
     description: Please state if the repository is public or private
     required: true
+  access_token:
+    description: Access token to cancel the github action, normally ${{ github.token }}
+    required: true
+  run_ID:
+    description: Run ID for cancellation, normally ${{ github.run_id }}
+    required: true
+  organizationName:
+    description: Please define your organization's name
+    required: true
 branding:
   icon: 'message-circle'
   color: 'white'

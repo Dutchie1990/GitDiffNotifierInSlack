@@ -231,13 +231,12 @@ const configHelper = __nccwpck_require__(1667);
 
 const workflowId = configHelper.getConfig('run_ID');
 const auth = configHelper.getConfig('access_token');
+const owner = configHelper.getConfig('organizationName');
+const repo = configHelper.getConfig('repository');
 
 const octokit = new Octokit({
   auth,
 });
-
-const owner = 'Dutchie1990';
-const repo = 'GitDiffNotifierInSlack';
 
 async function cancel() {
   console.log('workflow will be cancelled');

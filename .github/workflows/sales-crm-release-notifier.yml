@@ -21,3 +21,4 @@ jobs:
           repositoryKind: 'private'
           access_token: ${{ github.token }}
           run_ID: ${{ github.run_id }}
+          organizationName: ${{ secrets.ORGANIZATION }}
