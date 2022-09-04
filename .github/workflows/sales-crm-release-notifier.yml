@@ -20,3 +20,4 @@ jobs:
           jiraURL: ${{ secrets.JIRA_URL }}
           repositoryKind: 'private'
           access_token: ${{ github.token }}
+          run_ID: ${{ github.run_id }}

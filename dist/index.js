@@ -227,6 +227,7 @@ module.exports = sendMessage;
 
 const { Octokit } = __nccwpck_require__(5375);
 const core = __nccwpck_require__(2186);
+const configHelper = __nccwpck_require__(1667);
 
 const octokit = new Octokit();
 
@@ -235,15 +236,8 @@ const repo = 'GitDiffNotifierInSlack';
 
 function cancel() {
   console.log('workflow will be cancelled');
-  const { GITHUB_RUN_ID } = process.env;
 
-  const { data: current_run } = octokit.rest.actions.getWorkflowRun({
-    owner,
-    repo,
-    run_id: Number(GITHUB_RUN_ID),
-  });
-
-  const workflowId = current_run.workflow_id;
+  const workflowId = configHelper.getConfig('run_ID');
 
   try {
     const res = octokit.rest.actions.cancelWorkflowRun({
