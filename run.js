@@ -15,7 +15,7 @@ async function run() {
     const sendMessage = require('./lib/sendMessage');
     const json = await sendMessage(message, INCOMING_WEBHOOK_URL);
 
-    if (haveCommits) {
+    if (!haveCommits) {
       workflowCancel.cancel();
     }
 
