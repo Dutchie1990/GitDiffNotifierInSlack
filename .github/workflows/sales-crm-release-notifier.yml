@@ -19,3 +19,4 @@ jobs:
           authToken: ${{ secrets.AUTH_TOKEN }}
           jiraURL: ${{ secrets.JIRA_URL }}
           repositoryKind: 'private'
+          access_token: ${{ github.token }}
