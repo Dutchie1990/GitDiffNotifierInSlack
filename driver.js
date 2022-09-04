@@ -9,8 +9,6 @@ function setupInputs(inputs) {
 
 process.env.INCOMING_WEBHOOK_URL = 'YOUR WEBHOOK URL';
 
-setupInputs({
-  text: 'Hello',
-});
+setupInputs({});
 
 run();
