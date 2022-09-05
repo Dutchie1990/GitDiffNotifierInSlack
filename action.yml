@@ -28,8 +28,8 @@ inputs:
   run_ID:
     description: Run ID for cancellation, normally ${{ github.run_id }}
     required: true
-  organizationName:
-    description: Please define your organization's name
+  organizationRepoName:
+    description: Please define your organization's + repo name, normally ${{ github.repository }}
     required: true
 branding:
   icon: 'message-circle'

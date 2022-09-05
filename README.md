@@ -19,7 +19,7 @@ This custom action can sent a GIT DIFF with connecting JIRA tickets to a release
     repositoryKind: 'private'
     access_token: ${{ github.token }}
     run_ID: ${{ github.run_id }}
-    organizationName: ${{ secrets.ORGANIZATION }}
+    organizationRepoName: ${{ github.repository }}
 ```
 
 ## Params
