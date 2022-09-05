@@ -231,8 +231,7 @@ const configHelper = __nccwpck_require__(1667);
 
 const workflowId = configHelper.getConfig('run_ID');
 const auth = configHelper.getConfig('access_token');
-const owner = configHelper.getConfig('organizationName');
-const repo = configHelper.getConfig('repository');
+const ownerRepo = configHelper.getConfig('organizationRepoName');
 
 const octokit = new Octokit({
   auth,
@@ -242,7 +241,7 @@ async function cancel() {
   console.log('workflow will be cancelled');
 
   return await octokit
-    .request(`POST /repos/${owner}/${repo}/actions/runs/${workflowId}/cancel`)
+    .request(`POST /repos/${ownerRepo}/actions/runs/${workflowId}/cancel`)
     .then((res) => {
       console.log(
         `Cancel run ${workflowId} responded with status ${res.status}`
