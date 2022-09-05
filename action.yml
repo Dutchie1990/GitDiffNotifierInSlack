@@ -23,15 +23,15 @@ inputs:
     description: Please state if the repository is public or private
     required: true
   access_token:
-    description: 'Access token to cancel the github action, normally `${{ github.token }}`'
+    description: 'Access token to cancel the github action, github.token'
     required: true
     default: '${{ github.token }}'
   run_ID:
-    description: 'Run ID for cancellation, normally `${{ github.run_id }}`'
+    description: 'Run ID for cancellation, normally github.run_id'
     required: true
     default: '${{ github.run_id }}'
   organizationRepoName:
-    description: 'Please define your organization's + repo name, normally `${{ github.repository }}`'
+    description: 'Please define your organization's + repo name, normally github.repository'
     required: true
     default: '${{ github.repository }}'
 branding:
