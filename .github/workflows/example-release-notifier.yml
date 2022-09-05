@@ -1,4 +1,4 @@
-name: 'Release notification bot Sales CRM '
+name: 'Release notification bot Example'
 on:
   workflow_dispatch:
 
