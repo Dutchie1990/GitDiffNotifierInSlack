@@ -25,15 +25,15 @@ inputs:
   access_token:
     description: 'Access token to cancel the github action, github.token'
     required: true
-    default: '${{ github.token }}'
+    default: ${{ github.token }}
   run_ID:
     description: 'Run ID for cancellation, normally github.run_id'
     required: true
-    default: '${{ github.run_id }}'
+    default: ${{ github.run_id }}
   organizationRepoName:
     description: 'Please define your organization's + repo name, normally github.repository'
     required: true
-    default: '${{ github.repository }}'
+    default: ${{ github.repository }}
 branding:
   icon: 'message-circle'
   color: 'white'
