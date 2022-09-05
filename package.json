@@ -11,19 +11,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlphaFounders/slack-release-bot.git"
+    "url": "git+https://github.com/Dutchie1990/GitDiffNotifierInSlack.git"
   },
   "keywords": [
     "GitHub",
     "Actions",
     "JavaScript"
   ],
-  "author": "RabbitCare Tech",
-  "private": true,
+  "author": "Daniel Boone",
+  "private": false,
   "bugs": {
-    "url": "https://github.com/AlphaFounders/slack-release-bot/issues"
+    "url": "https://github.com/Dutchie1990/GitDiffNotifierInSlack/issues"
   },
-  "homepage": "https://github.com/AlphaFounders/slack-release-bot#readme",
+  "homepage": "https://github.com/Dutchie1990/GitDiffNotifierInSlack#readme",
   "dependencies": {
     "@actions/core": "^1.9.1",
     "@octokit/rest": "^19.0.4",
